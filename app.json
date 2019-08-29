@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/dynamic/dynamic",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/self/self",
+    "pages/note/note"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#EDEDED",
+    "backgroundColor": "#EDEDED"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "resources/images/icon_home.png",
+        "selectedIconPath": "resources/images/icon_home_HL.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/dynamic/dynamic",
+        "iconPath": "resources/images/icon_message.png",
+        "selectedIconPath": "resources/images/icon_message_HL.png",
+        "text": "动态"
+      },
+      {
+        "pagePath": "pages/note/note",
+        "iconPath": "resources/images/icon_note.png",
+        "selectedIconPath": "resources/images/icon_note_HL.png",
+        "text": "笔记"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "iconPath": "resources/images/icon_user.png",
+        "selectedIconPath": "resources/images/icon_user_HL.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
