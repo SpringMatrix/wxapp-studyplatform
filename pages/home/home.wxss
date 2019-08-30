@@ -1,1 +1,57 @@
-/* pages/home/home.wxss */
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result .weui-cell__bd{
+  padding: 2px 0 2px 20px;
+  color: #666;
+}
+.searchbar-result:before{
+    display: none;
+}
+
+
+
+
+.page-section-ctn {
+  text-align: center;
+}
+
+.image {
+  margin-top: 0rpx;
+  width: 200rpx;
+  height: 300rpx;
+}
+.image_sw {
+  margin-top: 0rpx;
+  width: 700rpx;
+  height: 300rpx;
+}
+
+.layout_horizontal{
+  /* height: 100rpx; */
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+   justify-content:center;
+}
+
+.layout_vertical{
+  margin-right:80rpx;
+  margin-left: 80rpx;
+  margin-top: 10rpx;
+  margin-bottom: 5rpx;
+  /* padding-left: 10rpx;
+  padding-right: 10rpx; */
+
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+}
+
+.start_k{
+/* display:flex; */
+/* padding-left:5px; */
+text-align: center;
+align-items:center;
+}
