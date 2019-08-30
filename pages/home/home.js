@@ -5,62 +5,44 @@ Page({
    * 页面的初始数据
    */
   data: {
+    inputShowed: false,
+    inputVal: "",
 
+        // 推荐课程
+    courses: ['../../resources/home_images/course1.jpg', '../../resources/home_images/course2.jpg', '../../resources/home_images/course3.jpg', '../../resources/home_images/course4.jpg', '../../resources/home_images/course5.jpg', '../../resources/home_images/course6.jpg', '../../resources/home_images/course7.jpg', '../../resources/home_images/course8.jpg'],
+
+    course_name: ['数学', '物理', '学科辅导', '奥数', 'Book', 'School', '1v1辅导', '学科辅导'],
+
+
+    mess1: 'Liu Ming Mei',
+    mess2: '刘明媚',
+    background: ['../../resources/home_images/1.jpg', '../../resources/home_images/2.jpg', '../../resources/home_images/3.jpg', '../../resources/home_images/4.jpg'],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 2000,
+    duration: 500,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
   }
 })
