@@ -4,7 +4,7 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <navigator url="myprofile/myprofile" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="//i0.hdslb.com/bfs/face/0138f6c4c55808f0af148587bf83a9419524757f.jpg" />
           </view>
@@ -20,7 +20,7 @@
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_small-appmsg">
         <view class="weui-cells weui-cells_in-small-appmsg">
-          <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+          <navigator bindtap="openCheckin" url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__hd">
               <image src="../../resources/images/icon_star_20px.png" style="width: 20px;height: 20px;margin-right: 16px;vertical-align:middle;" />
             </view>
@@ -29,7 +29,7 @@
             </view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
           </navigator>
-          <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+          <navigator url="bookmark/bookmark" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__hd">
               <image src="../../resources/images/icon_mark_20px.png" style="width: 20px;height: 20px;margin-right: 16px;vertical-align:middle;" />
             </view>
@@ -38,7 +38,7 @@
             </view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
           </navigator>
-          <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+          <navigator url="focus/focus" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__hd">
               <image src="../../resources/images/icon_favor_20px.png" style="width: 20px;height: 20px;margin-right: 16px;vertical-align:middle;" />
             </view>
@@ -47,7 +47,7 @@
             </view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
           </navigator>
-          <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+          <navigator url="learnproject/learnproject" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__hd">
               <image src="../../resources/images/icon_left_20px.png" style="width: 20px;height: 20px;margin-right: 16px;vertical-align:middle;" />
             </view>
@@ -64,7 +64,7 @@
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_small-appmsg">
         <view class="weui-cells weui-cells_in-small-appmsg">
-          <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+          <navigator url="setting/setting" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__hd">
               <image src="../../resources/images/icon_setting_20px.png" style="width: 20px;height: 20px;margin-right: 16px;vertical-align:middle;" />
             </view>

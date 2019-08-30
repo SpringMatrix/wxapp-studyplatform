@@ -1,4 +1,4 @@
-// pages/self/myself.js
+// pages/self/setting/setting.js
 Page({
 
   /**
@@ -12,21 +12,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.info("加载中");
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.info("加载完毕");
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.info("页面已显示");
+
   },
 
   /**
@@ -62,13 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  
-  openCheckin: function () {
-    wx.showToast({
-      title: '签到成功!',
-      icon: 'success',
-      duration: 3000
-    });
-  },
+  }
 })

@@ -1,0 +1,11 @@
+/* pages/self/myprofile/myprofile.wxss */
+@import "../../../style/weui1.1.wxss";
+
+.picker{
+  padding: 19rpx 26rpx;
+  background-color: #FFFFFF;
+}
+button{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}

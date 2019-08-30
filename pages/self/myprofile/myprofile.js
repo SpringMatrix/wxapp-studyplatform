@@ -1,32 +1,33 @@
-// pages/self/myself.js
+// pages/self/myprofile/myprofile.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    gender: ['男', '女', '保密'],
+    index: 2,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.info("加载中");
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.info("加载完毕");
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.info("页面已显示");
+
   },
 
   /**
@@ -63,12 +64,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-  
-  openCheckin: function () {
-    wx.showToast({
-      title: '签到成功!',
-      icon: 'success',
-      duration: 3000
-    });
+
+  bindPickerChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
+
 })

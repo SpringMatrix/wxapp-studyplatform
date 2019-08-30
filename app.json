@@ -5,7 +5,13 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/self/self",
-    "pages/note/note"
+    "pages/note/note",
+    "pages/self/checkin/checkin",
+    "pages/self/bookmark/bookmark",
+    "pages/self/focus/focus",
+    "pages/self/learnproject/learnproject",
+    "pages/self/setting/setting",
+    "pages/self/myprofile/myprofile"
   ],
   "window": {
     "backgroundTextStyle": "light",
