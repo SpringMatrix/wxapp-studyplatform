@@ -2,7 +2,7 @@
 <text>pages/self/myprofile/myprofile.wxml</text>
 <view class="page">
   <view class="weui-cells weui-cells_after-title">
-    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <navigator url="changeusername/changeusername" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__bd">昵称</view>
       <view class="weui-cell__ft weui-cell__ft_in-access">RankOfMatrix</view>
     </navigator>

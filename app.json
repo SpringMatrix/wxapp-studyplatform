@@ -6,12 +6,14 @@
     "pages/logs/logs",
     "pages/self/self",
     "pages/note/note",
-    "pages/self/checkin/checkin",
     "pages/self/bookmark/bookmark",
     "pages/self/focus/focus",
     "pages/self/learnproject/learnproject",
     "pages/self/setting/setting",
-    "pages/self/myprofile/myprofile"
+    "pages/self/myprofile/myprofile",
+    "pages/self/myprofile/changeusername/changeusername",
+    "pages/userinfo/userinfo",
+    "pages/courseinfo/courseinfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
