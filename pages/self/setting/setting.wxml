@@ -1,2 +1,12 @@
 <!--pages/self/setting/setting.wxml-->
 <text>pages/self/setting/setting.wxml</text>
+
+<view class="weui-cells__title">开启后，您的所有行为不会被展示给他人</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_switch">
+    <view class="weui-cell__bd">隐私模式</view>
+    <view class="weui-cell__ft">
+      <switch />
+    </view>
+  </view>
+</view>
