@@ -2,6 +2,17 @@
 <text>pages/dynamic/dynamic.wxml</text>
 
 <view class="page">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" placeholder="请输入动态内容" style="height: 3.3em" bindinput='userInput' />
+        <view class="weui-textarea-counter">{{length}}/140</view>
+      </view>
+          <button class="weui-btn" type="primary" bindtap="sendDynamic">发送</button>
+    </view>
+
+  </view>
+    
   <view class="weui-panel">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">
