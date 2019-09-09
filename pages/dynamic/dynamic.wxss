@@ -1,1 +1,6 @@
 /* pages/dynamic/dynamic.wxss */
+
+.weui-media-box_text {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+}

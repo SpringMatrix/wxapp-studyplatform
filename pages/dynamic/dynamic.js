@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    avatar: "//i0.hdslb.com/bfs/face/0138f6c4c55808f0af148587bf83a9419524757f.jpg"
   },
 
   /**
