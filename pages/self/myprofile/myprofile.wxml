@@ -6,7 +6,7 @@
     <navigator url="changeusername/changeusername" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__bd">昵称</view>
       <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
-        <view style="display: inline-block;vertical-align:middle; font-size: 17px;">RankOfMatrix</view>
+        <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{userNickName}}</view>
         <!-- <view class="weui-badge weui-badge_dot" style="margin-left: 5px;margin-right: 5px;"></view> -->
       </view>
     </navigator>

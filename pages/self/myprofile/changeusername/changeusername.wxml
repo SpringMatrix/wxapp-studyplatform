@@ -8,11 +8,11 @@
         <view class="weui-label">新昵称</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="请输入新的昵称" />
+        <input class="weui-input" placeholder="请输入新的昵称" bindinput='userInput'/>
       </view>
     </view>
   </view>
   <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap="showTopTips">确定</button>
+    <button class="weui-btn" type="primary" bindtap="changeConfirm">确定</button>
   </view>
 </view>

@@ -1,12 +1,15 @@
 // pages/self/myself.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isCheckin: 0,
-    avatar: "//i0.hdslb.com/bfs/face/0138f6c4c55808f0af148587bf83a9419524757f.jpg"
+    userAvatar: "//i0.hdslb.com/bfs/face/0138f6c4c55808f0af148587bf83a9419524757f.jpg",
+    userInfo: {},
+    userNickName: '',
+    userPoint: 0
   },
 
   /**
@@ -14,6 +17,12 @@ Page({
    */
   onLoad: function(options) {
     console.info("加载中");
+    this.setData({
+      userNickName: app.globalData.databaseUserInfo.name,
+      userAvatar: app.globalData.userInfo.avatarUrl,
+      userPoint: app.globalData.databaseUserInfo.point
+    })
+
   },
 
   /**
@@ -28,6 +37,11 @@ Page({
    */
   onShow: function() {
     console.info("页面已显示");
+    this.setData({
+      userNickName: app.globalData.databaseUserInfo.name,
+      userAvatar: app.globalData.userInfo.avatarUrl,
+      userPoint: app.globalData.databaseUserInfo.point
+    })
   },
 
   /**
@@ -66,19 +80,41 @@ Page({
   },
 
   openCheckin: function() {
-    if (this.data.isCheckin==0) {
-      this.data.isCheckin=1;
-      wx.showToast({
-        title: '签到成功!',
-        icon: 'success',
-        duration: 3000
-      });
-    } else {
-      wx.showToast({
-        title: '今日已签到!',
-        icon: 'success',
-        duration: 3000
-      });
-    }
+    var that = this
+    wx.request({
+      url: 'http://localhost:8080/api/users/punch',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        unionid: app.globalData.openid
+      },
+      dataType: 'json',
+      success: function(result) {
+        if (result.data == true) {
+          wx.showToast({
+            title: '签到成功!',
+            icon: 'success',
+            duration: 3000
+          });
+          app.globalData.databaseUserInfo.point = app.globalData.databaseUserInfo.point + 1
+          that.setData({
+            userPoint: app.globalData.databaseUserInfo.point
+          })
+        } else {
+          wx.showToast({
+            title: '今日已签到!',
+            image: '../../resources/images/icon_error.png',
+            duration: 3000
+          });
+        }
+        console.log(result.data)
+      },
+      fail: function() {
+        console.log(" post error")
+      }
+    })
+
   },
 })

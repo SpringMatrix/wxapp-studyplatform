@@ -1,18 +1,21 @@
 // pages/self/setting/setting.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    privacy: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      privacy : app.globalData.databaseUserInfo.privacy
+    })
   },
 
   /**
@@ -61,6 +64,47 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+
+  privacyChange: function(e){
+    var that = this
+    console.log('switch 发生 change 事件，携带值为', e.detail.value)
+
+    wx.request({
+      url: 'http://localhost:8080/api/users/reprivacy',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        unionid: app.globalData.openid
+      },
+      dataType: 'json',
+      success: function (result) {
+        if (result.data == true) {
+          wx.showToast({
+            title: '修改成功!',
+            icon: 'success',
+            duration: 3000
+          });
+          app.globalData.databaseUserInfo.privacy = !app.globalData.databaseUserInfo.point
+          that.setData({
+            privacy: app.globalData.databaseUserInfo.privacy
+          })
+        } else {
+          wx.showToast({
+            title: '修改失败!',
+            image: '../../resources/images/icon_error.png',
+            duration: 3000
+          });
+        }
+        console.log(result.data)
+      },
+      fail: function () {
+        console.log(" post error")
+      }
+    })
 
   }
 })

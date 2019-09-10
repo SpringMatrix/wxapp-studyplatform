@@ -9,8 +9,8 @@
             <image class="weui-media-box__thumb" src="{{avatar}}" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title">RankOfMatrix</view>
-            <view class="weui-media-box__desc">积分 8888</view>
+            <view class="weui-media-box__title">{{userNickName}}</view>
+            <view class="weui-media-box__desc">积分 {{userPoint}}</view>
           </view>
         </navigator>
       </view>

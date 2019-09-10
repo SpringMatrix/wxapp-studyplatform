@@ -6,7 +6,8 @@
   <view class="weui-cell weui-cell_switch">
     <view class="weui-cell__bd">隐私模式</view>
     <view class="weui-cell__ft">
-      <switch />
+      <switch wx:if="{{privacy}}" checked bindchange="privacyChange"/>
+      <switch wx:else bindchange="privacyChange"/>
     </view>
   </view>
 </view>
