@@ -13,7 +13,9 @@
     "pages/self/myprofile/myprofile",
     "pages/self/myprofile/changeusername/changeusername",
     "pages/userinfo/userinfo",
-    "pages/courseinfo/courseinfo"
+    "pages/courseinfo/courseinfo",
+    "pages/write_note/write_note",
+    "pages/voide/voide"
   ],
   "window": {
     "backgroundTextStyle": "light",

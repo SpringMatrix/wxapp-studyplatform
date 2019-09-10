@@ -78,12 +78,12 @@
 
         
         <view class="layout_vertical">
-        <image class="image" mode="aspectFill" src="{{courses[2*idx]}}" />
+        <image class="image" bindtap="bindViewTap" mode="aspectFill" src="{{courses[2*idx]}}" />
         
         <view class="start_k；page-section-title">{{course_name[2*idx]}}</view>
         </view>
         <view class="layout_vertical">
-        <image class="image" mode="aspectFill" src="{{courses[2*idx+1]}}" />
+        <image class="image" bindtap="bindViewTap" mode="aspectFill" src="{{courses[2*idx+1]}}" />
         
         <view class="start_k；page-section-title">{{course_name[2*idx+1]}}</view>
         </view>

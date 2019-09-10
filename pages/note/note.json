@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-card": "../../resources/components/dist/card/index"
+  },
+  "navigationBarTitleText": "个人笔记"
 }

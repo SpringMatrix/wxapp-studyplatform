@@ -44,5 +44,10 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
-  }
+  },
+  bindViewTap: function () {
+    wx.navigateTo({
+      url: '../voide/voide'
+    })
+  },
 })

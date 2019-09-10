@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+        "i-input": "../../resources/components/dist/input/index",
+        "i-button": "../../resources/components/dist/button/index",
+        "i-panel": "../../resources/components/dist/panel/index"
+  },
+  "navigationBarTitleText": "笔记编辑"
+}
