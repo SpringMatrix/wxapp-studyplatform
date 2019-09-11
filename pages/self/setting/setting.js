@@ -13,9 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      privacy : app.globalData.databaseUserInfo.privacy
-    })
+    
   },
 
   /**
@@ -29,7 +27,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      privacy: app.globalData.databaseUserInfo.privacy
+    })
   },
 
   /**
@@ -88,7 +88,7 @@ Page({
             icon: 'success',
             duration: 3000
           });
-          app.globalData.databaseUserInfo.privacy = !app.globalData.databaseUserInfo.point
+          app.globalData.databaseUserInfo.privacy = !app.globalData.databaseUserInfo.privacy
           that.setData({
             privacy: app.globalData.databaseUserInfo.privacy
           })
