@@ -53,84 +53,68 @@ Page({
   },
   onLoad: function() {
     var that = this
-    wx.getSetting({
-      success(res) {
-        if (!res.authSetting['scope.userInfo']) {
-          wx.authorize({
-            scope: 'scope.userInfo',
-            success() {
-              // 用户已经同意小程序使用微信用户信息
-            }
-          })
-        }
-      }
-    })
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-          console.info(app.globalData.userInfo)
-        }
-      })
-    }
-    wx.login({
-      success: function(r) {
-        console.log("code:" + r.code + "\n end")
-        if (r.code) {
-          app.globalData.code = r.code; //登录凭证  
-          var url = 'http://localhost:8080/api/users/login'
-          //发起网络请求  
-          //console.info("????")
-          wx.request({
-            url: url,
-            method: "POST",
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: {
-              code: app.globalData.code,
-              name: app.globalData.userInfo.nickName
-            },
-            dataType: 'json',
-            success: function(result) {
-              app.globalData.databaseUserInfo = result.data //数据库中的信息
-              app.globalData.openid = result.data.unionid
-              app.globalData.isLogin = true
-              console.log(app.globalData.databaseUserInfo)
-            },
-            fail: function() {
-              console.log(" post error")
-            }
-          })
-        }
-      },
-      fail: function() {
-        console.log("error")
-      }
-    })
+    // DEBUG 发送http请求需要获取微信userinfo，但由于网络延迟获取userinfo会在发送http之后
 
   },
   onReady: function() {
     var that = this;
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '../index/index'
+          })
+        } else {
+          wx.getUserInfo({
+            success: res => {
+              app.globalData.userInfo = res.userInfo
+              that.setData({
+                userInfo: res.userInfo,
+                hasUserInfo: true
+              })
+              console.info(app.globalData.userInfo)
+              wx.login({
+                success: function(r) {
+                  console.log("code:" + r.code + "\n end")
+                  if (r.code) {
+                    app.globalData.code = r.code; //登录凭证  
+                    var url = 'http://localhost:8080/api/users/login'
+                    //发起网络请求  
+                    //console.info("????")
+                    wx.request({
+                      url: url,
+                      method: "POST",
+                      header: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                      },
+                      data: {
+                        code: app.globalData.code,
+                        name: app.globalData.userInfo.nickName
+                      },
+                      dataType: 'json',
+                      success: function(result) {
+                        app.globalData.databaseUserInfo = result.data //数据库中的信息
+                        app.globalData.openid = result.data.unionid
+                        app.globalData.isLogin = true
+                        console.log(app.globalData.databaseUserInfo)
+                      },
+                      fail: function() {
+                        console.log(" post error")
+                      }
+                    })
+                  }
+                },
+                fail: function() {
+                  console.log("error")
+                }
+              })
+            }
+          })
+
+        }
+      }
+    })
+
 
   }
 

@@ -42,36 +42,7 @@ Page({
         }
       })
     }
-    wx.login({
-      success: function(r) {
-        console.log("code:" + r.code + "\n end")
-        if (r.code) {
-          app.globalData.code = r.code; //登录凭证  
-          var url = 'http://localhost:8080/api/users/login'
-          //发起网络请求  
-          wx.request({
-            url: url,
-            method: "POST",
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: {
-              code: app.globalData.code
-            },
-            dataType: 'json',
-            success: function(result) {
-              console.log(result.data)
-            },
-            fail: function() {
-              console.log(" post error")
-            }
-          })
-        }
-      },
-      fail: function() {
-        console.log("error")
-      }
-    })
+    
     //commodities: getCom()
   },
   getUserInfo: function(info) {
@@ -80,6 +51,41 @@ Page({
     this.setData({
       userInfo: info.detail.userInfo,
       hasUserInfo: true
+    })
+    wx.login({
+      success: function (r) {
+        console.log("code:" + r.code + "\n end")
+        if (r.code) {
+          app.globalData.code = r.code; //登录凭证  
+          var url = 'http://localhost:8080/api/users/login'
+          //发起网络请求  
+          //console.info("????")
+          wx.request({
+            url: url,
+            method: "POST",
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: {
+              code: app.globalData.code,
+              name: app.globalData.userInfo.nickName
+            },
+            dataType: 'json',
+            success: function (result) {
+              app.globalData.databaseUserInfo = result.data //数据库中的信息
+              app.globalData.openid = result.data.unionid
+              app.globalData.isLogin = true
+              console.log(app.globalData.databaseUserInfo)
+            },
+            fail: function () {
+              console.log(" post error")
+            }
+          })
+        }
+      },
+      fail: function () {
+        console.log("error")
+      }
     })
   }
 })
