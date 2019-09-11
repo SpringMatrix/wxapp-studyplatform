@@ -1,4 +1,5 @@
 // pages/dynamic/dynamic.js
+const app = getApp()
 Page({
 
   /**
@@ -6,14 +7,18 @@ Page({
    */
   data: {
     length: 0,
-    avatar: "//i0.hdslb.com/bfs/face/0138f6c4c55808f0af148587bf83a9419524757f.jpg"
+    avatar: "//i0.hdslb.com/bfs/face/0138f6c4c55808f0af148587bf83a9419524757f.jpg",
+    content: ""
+
   },
   userInput: function (e) {
     this.setData({
-      length: e.detail.value.length
+      length: e.detail.value.length,
+      content: e.detail.value
     })
   },
   sendDynamic: function(e){
+    var that = this
     if (this.data.length==0){
       wx.showToast({
         title: '输入不能为空!',
@@ -21,11 +26,43 @@ Page({
         duration: 3000
       });
     }else{
-      wx.showToast({
-        title: '发送成功!',
-        icon: 'success',
-        duration: 3000
-      });
+      var url = 'http://localhost:8080/api/news/'
+      wx.request({
+        url: url,
+        method: "POST",
+        header: {
+          "Content-Type": "application/json"
+        },
+        data: {
+          content: that.data.content,
+          unionid: app.globalData.databaseUserInfo.unionid,
+        },
+        dataType: 'json',
+        success: function (result) {
+          if (result.data == true){
+            wx.showToast({
+              title: '发送成功!',
+              icon: 'success',
+              duration: 3000
+            });
+          } else {
+            wx.showToast({
+              title: '创建失败!',
+              image: '../../resources/images/icon_error.png',
+              duration: 3000
+            });
+          }
+        },
+        fail: function () {
+          wx.showToast({
+            title: '发送失败!',
+            image: '../../resources/images/icon_error.png',
+            duration: 3000
+          });
+          console.log(" post error")
+        }
+      })
+      
     }
 
   },

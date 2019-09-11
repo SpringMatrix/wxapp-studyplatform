@@ -89,7 +89,8 @@ Page({
                       },
                       data: {
                         code: app.globalData.code,
-                        name: app.globalData.userInfo.nickName
+                        name: app.globalData.userInfo.nickName,
+                        avatar: app.globalData.userInfo.avatarUrl
                       },
                       dataType: 'json',
                       success: function(result) {
