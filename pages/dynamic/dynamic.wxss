@@ -1,6 +1,11 @@
 /* pages/dynamic/dynamic.wxss */
+
 @import '../../style/base/variable/weui-button.wxss'
+
 .weui-media-box_text {
   color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
+}
+.weui-loadmore__tips_in-line {
+  background-color:#EDEDED
 }

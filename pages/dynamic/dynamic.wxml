@@ -8,77 +8,36 @@
         <textarea class="weui-textarea" placeholder="请输入动态内容" style="height: 3.3em" bindinput='userInput' />
         <view class="weui-textarea-counter">{{length}}/140</view>
       </view>
-          <button class="weui-btn" type="primary" bindtap="sendDynamic">发送</button>
+      <button class="weui-btn" type="primary" bindtap="sendDynamic">发送</button>
     </view>
 
   </view>
-    
-  <view class="weui-panel">
+
+  <view wx:for="{{newsList}}" wx:key="id" wx:for-item="news" wx:if="{{index<page}}" class="weui-panel">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">
         <view class="weui-media-box__title weui-media-box__title_in-text">
           <navigator url="../userinfo/userinfo">
-            <image src="{{avatar}}" style="width: 100rpx;height: 100rpx;margin-right: 16px;vertical-align:middle;" /> RankOfmatrix
+            <image src="{{news.avatar}}" style="width: 100rpx;height: 100rpx;margin-right: 16px;vertical-align:middle;" /> {{news.name}}
           </navigator>
         </view>
-        <view class="weui-media-box_text">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+        <view class="weui-media-box_text">{{news.content}}</view>
         <view class="weui-media-box__info">
           <view class="weui-media-box__info__meta">1天前</view>
-          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{news.time}}</view>
         </view>
       </view>
     </view>
   </view>
-  <view class="weui-panel">
-    <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text">
-          <navigator url="../userinfo/userinfo">
-            <image src="{{avatar}}" style="width: 100rpx;height: 100rpx;margin-right: 16px;vertical-align:middle;" /> RankOfmatrix
-          </navigator>
-        </view>
-        <view class="weui-media-box_text">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-        <view class="weui-media-box__info">
-          <view class="weui-media-box__info__meta">2天前</view>
-          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
-        </view>
-      </view>
+
+
+  <view class="page__bd">
+    <view wx:if="{{newsList.length > page}}" class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
     </view>
-  </view>
-  <view class="weui-panel">
-    <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text">
-          <navigator url="../userinfo/userinfo">
-            <image src="{{avatar}}" style="width: 100rpx;height: 100rpx;margin-right: 16px;vertical-align:middle;" /> 贾廷刚
-          </navigator>
-        </view>
-        <view class="weui-media-box_text">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-        <view class="weui-media-box__info">
-          <view class="weui-media-box__info__meta">3天前</view>
-          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
-        </view>
-      </view>
+    <view wx:else class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">你已经到达了世界的尽头</view>
     </view>
-  </view>
-  <view class="weui-panel">
-    <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text">
-          <navigator url="../userinfo/userinfo">
-            <image src="{{avatar}}" style="width: 100rpx;height: 100rpx;margin-right: 16px;vertical-align:middle;" /> RankOfmatrix
-          </navigator>
-        </view>
-        <view class="weui-media-box_text">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-        <view class="weui-media-box__info">
-          <view class="weui-media-box__info__meta">3天前</view>
-          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="weui-loadmore">
-    <view class="weui-loading"></view>
-    <view class="weui-loadmore__tips">正在加载</view>
   </view>
 </view>
