@@ -111,7 +111,7 @@ Page({
                 } else {
                   wx.showToast({
                     title: '修改失败',
-                    image: '../../resources/images/icon_error.png',
+                    image: '../../../../resources/images/icon_error.png',
                     duration: 3000
                   });
                 }

@@ -19,6 +19,41 @@ Page({
       content: e.detail.value
     })
   },
+  fastRequestAll: function() {
+    var that = this
+    var url = 'http://localhost:8080/api/news/all'
+    wx.request({
+      url: url,
+      method: "GET",
+      header: {
+        "Content-Type": "application/json"
+      },
+      data: {
+      },
+      dataType: 'json',
+      success: function (result) {
+        if (result.data != null) {
+          that.setData({
+            newsList: result.data.reverse()
+          })
+        } else {
+          wx.showToast({
+            title: '获取动态失败!',
+            image: '../../resources/images/icon_error.png',
+            duration: 3000
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '连接失败!',
+          image: '../../resources/images/icon_error.png',
+          duration: 3000
+        });
+        console.log(" post error")
+      }
+    })
+  },
   sendDynamic: function(e) {
     var that = this
     if (this.data.length == 0) {
@@ -77,39 +112,7 @@ Page({
    */
   onLoad: function(options) {
     console.log('刷新')
-    var that = this
-    var url = 'http://localhost:8080/api/news/all'
-    wx.request({
-      url: url,
-      method: "GET",
-      header: {
-        "Content-Type": "application/json"
-      },
-      data: {
-      },
-      dataType: 'json',
-      success: function (result) {
-        if (result.data != null) {
-          that.setData({
-            newsList: result.data.reverse()
-          })
-        } else {
-          wx.showToast({
-            title: '获取动态失败!',
-            image: '../../resources/images/icon_error.png',
-            duration: 3000
-          });
-        }
-      },
-      fail: function () {
-        wx.showToast({
-          title: '连接失败!',
-          image: '../../resources/images/icon_error.png',
-          duration: 3000
-        });
-        console.log(" post error")
-      }
-    })
+    //this.fastRequestAll()
   },
 
   /**
@@ -123,7 +126,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    
+    this.fastRequestAll()
   },
 
   /**
@@ -145,39 +148,7 @@ Page({
    */
   onPullDownRefresh: function() {
     console.log('onPullDownRefresh')
-    var that = this
-    var url = 'http://localhost:8080/api/news/all'
-    wx.request({
-      url: url,
-      method: "GET",
-      header: {
-        "Content-Type": "application/json"
-      },
-      data: {
-      },
-      dataType: 'json',
-      success: function (result) {
-        if (result.data != null) {
-          that.setData({
-            newsList: result.data.reverse()
-          })
-        } else {
-          wx.showToast({
-            title: '获取动态失败!',
-            image: '../../resources/images/icon_error.png',
-            duration: 3000
-          });
-        }
-      },
-      fail: function () {
-        wx.showToast({
-          title: '连接失败!',
-          image: '../../resources/images/icon_error.png',
-          duration: 3000
-        });
-        console.log(" post error")
-      }
-    })
+    this.fastRequestAll()
     this.onReady()
   },
 
