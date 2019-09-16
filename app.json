@@ -15,7 +15,7 @@
     "pages/userinfo/userinfo",
     "pages/courseinfo/courseinfo",
     "pages/write_note/write_note",
-    "pages/voide/voide"
+    "pages/video/video"
   ],
   "window": {
     "backgroundTextStyle": "light",

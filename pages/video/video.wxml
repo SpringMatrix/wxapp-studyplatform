@@ -5,17 +5,18 @@
 
   <view class="page-body">
     <view class="page-section tc">
-      <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
+      <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+        binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
 
 
-             
-<view>
-<image  catchtap='onCollectionTap'class="image" wx:if="{{istrue}}" src="../../resources/images/icon_favor_20px.png"></image>
-  <image wx:else catchtap='onCollectionTap' class="image_click" src="../../resources/images/icon_love.svg"></image>
-</view>
-             
 
-  
+      <view>
+        <image catchtap='onCollectionTap' class="image" wx:if="{{istrue}}" src="../../resources/images/icon_favor_20px.png"></image>
+        <image wx:else catchtap='onCollectionTap' class="image_click" src="../../resources/images/icon_love.svg"></image>
+      </view>
+
+
+
 
 
 
@@ -48,4 +49,3 @@
     </view>
   </view>
 </view>
-

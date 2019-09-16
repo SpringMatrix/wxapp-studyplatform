@@ -9,6 +9,8 @@ Page({
     inputShowed: false,
     inputVal: "",
 
+    courseList: {},
+
     // 推荐课程
     courses: ['../../resources/home_images/course1.jpg', '../../resources/home_images/course2.jpg', '../../resources/home_images/course3.jpg', '../../resources/home_images/course4.jpg', '../../resources/home_images/course5.jpg', '../../resources/home_images/course6.jpg', '../../resources/home_images/course7.jpg', '../../resources/home_images/course8.jpg'],
 
@@ -46,9 +48,10 @@ Page({
       inputVal: e.detail.value
     });
   },
-  bindViewTap: function() {
+  bindViewTap: function(event) {
+    console.info(event.currentTarget.dataset.courseId)
     wx.navigateTo({
-      url: '../voide/voide'
+      url: '../video/video'
     })
   },
   onLoad: function() {
@@ -100,7 +103,7 @@ Page({
                         console.log(app.globalData.databaseUserInfo)
                       },
                       fail: function() {
-                        console.log(" post error")
+                        console.error(" post error")
                       }
                     })
                   }
@@ -110,6 +113,33 @@ Page({
                 }
               })
             }
+          })
+          var url = 'http://localhost:8080/api/courses/all'
+          wx.request({
+            url: url,
+            method: "GET",
+            header: {
+              "Content-Type": "application/json"
+            },
+            data: {},
+            dataType: 'json',
+            success: function(result) {
+              if (result.data != null) {
+                that.setData({
+                  courseList: result.data
+                })
+              } else {
+                wx.showToast({
+                  title: '获取动态失败!',
+                  image: '../../resources/images/icon_error.png',
+                  duration: 3000
+                })
+              }
+            },
+            fail: function() {
+              console.error(" post error")
+            }
+
           })
 
         }
