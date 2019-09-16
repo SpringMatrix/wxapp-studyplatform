@@ -12,9 +12,6 @@ Page({
     courseList: {},
 
     // 推荐课程
-    courses: ['../../resources/home_images/course1.jpg', '../../resources/home_images/course2.jpg', '../../resources/home_images/course3.jpg', '../../resources/home_images/course4.jpg', '../../resources/home_images/course5.jpg', '../../resources/home_images/course6.jpg', '../../resources/home_images/course7.jpg', '../../resources/home_images/course8.jpg'],
-
-    course_name: ['数学', '物理', '学科辅导', '奥数', 'Book', 'School', '1v1辅导', '学科辅导'],
 
 
     mess1: 'Liu Ming Mei',
@@ -49,9 +46,10 @@ Page({
     });
   },
   bindViewTap: function(event) {
+    var course_id = event.currentTarget.dataset.courseId
     console.info(event.currentTarget.dataset.courseId)
     wx.navigateTo({
-      url: '../video/video'
+      url: '../video/video?id=' + course_id
     })
   },
   onLoad: function() {
@@ -130,7 +128,7 @@ Page({
                 })
               } else {
                 wx.showToast({
-                  title: '获取动态失败!',
+                  title: '获取推荐课程失败!',
                   image: '../../resources/images/icon_error.png',
                   duration: 3000
                 })

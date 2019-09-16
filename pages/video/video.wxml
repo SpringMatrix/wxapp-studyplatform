@@ -1,19 +1,28 @@
-<!--pages/voide/voide.wxml-->
-<text>pages/voide/voide.wxml</text>
+<!--pages/video/video.wxml-->
 
-<view class="container">
+<view class="page-body">
 
-  <view class="page-body">
-    <view class="page-section tc">
-      <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
-        binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
+  <view class="page-section tc">
 
+    <video class= "videoCss" id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+      binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
 
 
-      <view>
-        <image catchtap='onCollectionTap' class="image" wx:if="{{istrue}}" src="../../resources/images/icon_favor_20px.png"></image>
-        <image wx:else catchtap='onCollectionTap' class="image_click" src="../../resources/images/icon_love.svg"></image>
+    <view style="padding: 20rpx 20rpx 25rpx 20rpx;">
+      <view style="line-height: 50rpx;">
+        <text style="font-size:65rpx;">{{courseInfo.name}}\n</text>
+        <text style="font-size:40rpx;">{{courseInfo.introduction}}\n</text>
       </view>
+      <view style="line-height: 80rpx;">
+        <text style="font-size:40rpx;">{{courseInfo.play_num}}播放 {{courseInfo.bookmark_num}}收藏</text>
+      </view>
+    </view>
+
+
+    <view style="padding: 0rpx 20rpx 25rpx 15rpx;">
+      <image catchtap='onBookmarkTap' class="image" wx:if="{{ismark}}" src="../../resources/images/icon_favor_20px.png" style="width: 70rpx;height: 70rpx;"></image>
+      <image wx:else catchtap='onBookmarkTap' class="image_click" src="../../resources/images/icon_love.svg" style="width: 70rpx;height: 70rpx;"></image>
+    </view>
 
 
 
@@ -33,19 +42,18 @@
 
 
 
-      <view class="weui-cells">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">弹幕内容</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input bindblur="bindInputBlur" class="weui-input" type="text" placeholder="在此处输入弹幕内容" />
-          </view>
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">弹幕内容</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input bindblur="bindInputBlur" class="weui-input" type="text" placeholder="在此处输入弹幕内容" />
         </view>
       </view>
-      <view class="btn-area">
-        <button bindtap="bindSendDanmu" class="page-body-button" type="primary" formType="submit">发送弹幕</button>
-      </view>
+    </view>
+    <view class="btn-area">
+      <button bindtap="bindSendDanmu" class="page-body-button" type="primary" formType="submit">发送弹幕</button>
     </view>
   </view>
 </view>

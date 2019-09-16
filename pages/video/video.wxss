@@ -33,3 +33,6 @@
   width: 55rpx;
   height: 55rpx;
 }
+.videoCss {
+  width: 100%;
+}
