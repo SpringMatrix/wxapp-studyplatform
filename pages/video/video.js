@@ -1,34 +1,21 @@
 // pages/voide/voide.js
 var app = getApp()
 
-function getRandomColor() {
-  const rgb = []
-  for (let i = 0; i < 3; ++i) {
-    let color = Math.floor(Math.random() * 256).toString(16)
-    color = color.length === 1 ? '0' + color : color
-    rgb.push(color)
-  }
-  return '#' + rgb.join('')
-}
-
-
-
-
 Page({
 
   data: {
     ismark: false,
     courseInfo: {},
     src: '',
-    danmuList: [{
-      text: '第 1s 出现的弹幕',
-      color: '#ff0000',
-      time: 1
-    }, {
-      text: '第 3s 出现的弹幕',
-      color: '#ff00ff',
-      time: 3
-    }],
+    length: 0,
+    content: "",
+  },
+
+  userInput: function (e) {
+    this.setData({
+      length: e.detail.value.length,
+      content: e.detail.value
+    })
   },
 
   onShareAppMessage() {
@@ -39,7 +26,9 @@ Page({
   },
 
   onLoad: function(options) {
-    console.info("当前参数：" + options.id)
+    this.setData({
+      options: options
+    })
     var that = this
     var url = 'http://localhost:8080/api/courses/id'
     // 获取课程信息
@@ -182,32 +171,60 @@ Page({
         }
       })
     }
-
-  },
-
-  bindButtonTap() {
-    const that = this
-    wx.chooseVideo({
-      sourceType: ['album', 'camera'],
-      maxDuration: 60,
-      camera: ['front', 'back'],
-      success(res) {
-        that.setData({
-          src: res.tempFilePath
-        })
-      }
-    })
-  },
-
-  bindSendDanmu() {
-    this.videoContext.sendDanmu({
-      text: this.inputValue,
-      color: getRandomColor()
-    })
   },
 
   videoErrorCallback(e) {
     console.log('视频错误信息:')
     console.log(e.detail.errMsg)
+  },
+
+  bindWriteNote: function() {
+    var that = this
+    if (this.data.length == 0) {
+      wx.showToast({
+        title: '输入不能为空!',
+        image: '../../resources/images/icon_error.png',
+        duration: 3000
+      });
+    } else {
+      var url = 'http://localhost:8080/api/notes/'
+      wx.request({
+        url: url,
+        method: "POST",
+        header: {
+          "Content-Type": "application/json"
+        },
+        data: {
+          content: that.data.content,
+          unionid: app.globalData.databaseUserInfo.unionid,
+          course_id: that.data.courseInfo.course_id
+        },
+        dataType: 'json',
+        success: function (result) {
+          if (result.data == true) {
+            wx.showToast({
+              title: '发送成功!',
+              icon: 'success',
+              duration: 3000
+            });
+          } else {
+            wx.showToast({
+              title: '创建失败!',
+              image: '../../resources/images/icon_error.png',
+              duration: 3000
+            });
+          }
+        },
+        fail: function () {
+          wx.showToast({
+            title: '发送失败!',
+            image: '../../resources/images/icon_error.png',
+            duration: 3000
+          });
+          console.log(" post error")
+        }
+      })
+
+    }
   }
 })

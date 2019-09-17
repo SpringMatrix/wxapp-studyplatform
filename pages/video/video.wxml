@@ -4,8 +4,8 @@
 
   <view class="page-section tc">
 
-    <video class= "videoCss" id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
-      binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
+    <video class="videoCss" id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+      binderror="videoErrorCallback" show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
 
 
     <view style="padding: 20rpx 20rpx 25rpx 20rpx;">
@@ -25,35 +25,15 @@
     </view>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <view class="weui-cells">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">弹幕内容</view>
-        </view>
+      <view class="weui-cell">
         <view class="weui-cell__bd">
-          <input bindblur="bindInputBlur" class="weui-input" type="text" placeholder="在此处输入弹幕内容" />
+          <textarea class="weui-textarea" placeholder="请输入笔记内容" style="height: 3.3em" bindinput='userInput' />
+          <view class="weui-textarea-counter">{{length}}/140</view>
         </view>
+
       </view>
     </view>
-    <view class="btn-area">
-      <button bindtap="bindSendDanmu" class="page-body-button" type="primary" formType="submit">发送弹幕</button>
-    </view>
+    <button bindtap="bindWriteNote" class="page-body-button" type="primary" formType="submit">保存笔记</button>
   </view>
 </view>

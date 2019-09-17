@@ -54,5 +54,31 @@ Page({
         console.error(" post error")
       }
     })
+  },
+
+  onShow: function() {
+    var that = this
+    var url = 'http://localhost:8080/api/courses/unionid/bookmark'
+    wx.request({
+      url: url,
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        unionid: app.globalData.openid
+      },
+      dataType: 'json',
+      success: function (result) {
+        that.setData({
+          bookmarkList: result.data.reverse()
+        })
+
+        console.log(result.data)
+      },
+      fail: function () {
+        console.error(" post error")
+      }
+    })
   }
 });
