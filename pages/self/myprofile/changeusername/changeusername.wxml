@@ -1,5 +1,4 @@
 <!--pages/self/myprofile/changeusername/changeusername.wxml-->
-<text>pages/self/myprofile/changeusername/changeusername.wxml</text>
 
 <view class="page">
   <view class="weui-cells weui-cells_after-title">

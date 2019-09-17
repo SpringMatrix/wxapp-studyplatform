@@ -80,7 +80,7 @@
 
           <view class="layout_horizontal">
             <view class="layout_vertical">
-              <image class="image" data-course-id="{{courseList[row_item*2+column_item].course_id}}"bindtap="bindViewTap" mode="aspectFill" src="{{courseList[row_item*2+column_item].image_url}}" />
+              <image class="image" data-course-id="{{courseList[row_item*2+column_item].course_id}}" bindtap="bindViewTap" mode="aspectFill" src="{{courseList[row_item*2+column_item].image_url}}" />
 
               <view class="start_k；page-section-title">{{courseList[row_item*2+column_item].name}}</view>
             </view>

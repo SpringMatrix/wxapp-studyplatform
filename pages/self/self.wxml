@@ -1,5 +1,4 @@
 <!--pages/self/self.wxml-->
-<text>pages/self/self.wxml</text>
 <view class="page">
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
@@ -11,6 +10,7 @@
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">{{userNickName}}</view>
             <view class="weui-media-box__desc">积分 {{userPoint}}</view>
+            <view class="weui-media-box__desc">粉丝 {{userFollow}}</view>
           </view>
         </navigator>
       </view>

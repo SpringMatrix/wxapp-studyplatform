@@ -1,5 +1,4 @@
 <!--pages/self/bookmark/bookmark.wxml-->
-<text>pages/self/bookmark/bookmark.wxml</text>
 
 <view class="page">
   <view class="weui-search-bar">

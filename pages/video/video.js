@@ -42,6 +42,7 @@ Page({
     console.info("当前参数：" + options.id)
     var that = this
     var url = 'http://localhost:8080/api/courses/id'
+    // 获取课程信息
     wx.request({
       url: url,
       method: "GET",
@@ -60,6 +61,7 @@ Page({
           title: result.data.name
         })
         var url = 'http://localhost:8080/api/bookmarks/'
+        // 请求是否有收藏关系
         wx.request({
           url: url,
           method: "GET",
@@ -107,6 +109,7 @@ Page({
     var that = this
     var url = 'http://localhost:8080/api/bookmarks/'
     if (!this.data.ismark) {
+      // 若未收藏，点击爱心则添加收藏关系
       wx.request({
         url: url,
         method: "POST",
@@ -143,6 +146,7 @@ Page({
         }
       })
     } else {
+      // 若已收藏，点击爱心取消收藏
       wx.request({
         url: url,
         method: "DELETE",

@@ -9,7 +9,8 @@ Page({
     userAvatar: "//i0.hdslb.com/bfs/face/0138f6c4c55808f0af148587bf83a9419524757f.jpg",
     userInfo: {},
     userNickName: '',
-    userPoint: 0
+    userPoint: 0,
+    userFollow: 0
   },
 
   /**
@@ -19,7 +20,8 @@ Page({
     this.setData({
       userNickName: app.globalData.databaseUserInfo.name,
       userAvatar: app.globalData.userInfo.avatarUrl,
-      userPoint: app.globalData.databaseUserInfo.point
+      userPoint: app.globalData.databaseUserInfo.point,
+      userFollow: app.globalData.databaseUserInfo.follow_num
     })
 
   },
@@ -37,7 +39,8 @@ Page({
     this.setData({
       userNickName: app.globalData.databaseUserInfo.name,
       userAvatar: app.globalData.userInfo.avatarUrl,
-      userPoint: app.globalData.databaseUserInfo.point
+      userPoint: app.globalData.databaseUserInfo.point,
+      userFollow: app.globalData.databaseUserInfo.follow_num
     })
   },
 

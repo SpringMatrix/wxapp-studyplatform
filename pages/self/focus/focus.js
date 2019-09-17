@@ -1,18 +1,41 @@
 // pages/self/focus/focus.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    followList: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    var url = 'http://localhost:8080/api/users/unionid/follow'
+    wx.request({
+      url: url,
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        unionid: app.globalData.openid
+      },
+      dataType: 'json',
+      success: function (result) {
+        that.setData({
+          followList: result.data.reverse()
+        })
 
+        console.log(result.data)
+      },
+      fail: function () {
+        console.error(" post error")
+      }
+    })
   },
 
   /**

@@ -45,7 +45,7 @@ Page({
       dataType: 'json',
       success: function (result) {
         that.setData({
-          bookmarkList: result.data
+          bookmarkList: result.data.reverse()
         })
 
         console.log(result.data)

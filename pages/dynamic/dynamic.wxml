@@ -1,4 +1,3 @@
-<!--pages/dynamic/dynamic.wxml-->
 <text>pages/dynamic/dynamic.wxml</text>
 
 <view class="page">
@@ -17,14 +16,14 @@
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">
         <view class="weui-media-box__title weui-media-box__title_in-text">
-          <navigator url="../userinfo/userinfo">
+          <navigator url="../userinfo/userinfo?unionid={{news.unionid}}">
             <image src="{{news.avatar}}" style="width: 100rpx;height: 100rpx;margin-right: 16px;vertical-align:middle;" /> {{news.name}}
           </navigator>
         </view>
         <view class="weui-media-box_text">{{news.content}}</view>
         <view class="weui-media-box__info">
-          <view class="weui-media-box__info__meta">1天前</view>
-          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{news.time}}</view>
+          <view class="weui-media-box__info__meta">{{news.time}}</view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其他信息</view>
         </view>
       </view>
     </view>
