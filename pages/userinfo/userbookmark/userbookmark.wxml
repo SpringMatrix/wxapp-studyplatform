@@ -1,31 +1,5 @@
-<!--pages/self/focus/focus.wxml-->
-
-
+<!--pages/userinfo/userbookmark/userbookmark.wxml-->
 <view class="page">
-  <!-- 滚动屏 -->
-
-  <view class="page-body">
-    <view class="page-section page-section-spacing swiper">
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{background}}" wx:key="*this">
-          <swiper-item>
-            <view class="page-section-ctn">
-              <!-- <view class="swiper-item {{item}}"></view> -->
-              <image class="image_sw" mode="aspectFit" src="{{item}}" />
-            </view>
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
-  </view>
-
-
-
-
-
-
-
-  <!-- 搜索框 -->
   <view class="weui-search-bar">
     <view class="weui-search-bar__form">
       <view class="weui-search-bar__box">
@@ -65,21 +39,17 @@
     </navigator>
   </view>
 
+  <view class="weui-cells weui-cells_after-title">
 
-  <!-- 推荐课程 -->
-  <view class="page-head-title">
-    <text>推荐课程</text>
-  </view>
-  <view>
-    <block wx:for="{{courseList.length%2==0?courseList.length/2:(courseList.length+1)/2}}" wx:key="row_key" wx:for-item="row_item" wx:for-index="row">
-      <view class="layout_horizontal">
-        <block wx:for="{{2}}" wx:key="column_key" wx:for-item="column_item" wx:for-index="column">
-          <view class="layout_vertical">
-            <image class="image" data-course-id="{{courseList[row_item*2+column_item].course_id}}" bindtap="bindViewTap" mode="aspectFill" src="{{courseList[row_item*2+column_item].image_url}}" />
-            <view class="start_k；page-section-title">{{courseList[row_item*2+column_item].name}}</view>
-          </view>
-        </block>
-      </view>
-    </block>
+    <view wx:for="{{bookmarkList}}" wx:for-item="course" wx:key="course_id">
+      <navigator url="{{baseUrl + course.course_id}}" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="{{'../'+course.image_url}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+        </view>
+        <view class="weui-cell__bd">{{course.name}}</view>
+        <view class="weui-cell__ft">{{course.tag1}}</view>
+      </navigator>
+    </view>
+
   </view>
 </view>

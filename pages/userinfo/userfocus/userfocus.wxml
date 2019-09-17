@@ -1,31 +1,7 @@
-<!--pages/self/focus/focus.wxml-->
-
-
+<!--pages/userinfo/userfocus/userfocus.wxml-->
+<text>pages/userinfo/userfocus/userfocus.wxml</text>
 <view class="page">
-  <!-- 滚动屏 -->
 
-  <view class="page-body">
-    <view class="page-section page-section-spacing swiper">
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{background}}" wx:key="*this">
-          <swiper-item>
-            <view class="page-section-ctn">
-              <!-- <view class="swiper-item {{item}}"></view> -->
-              <image class="image_sw" mode="aspectFit" src="{{item}}" />
-            </view>
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
-  </view>
-
-
-
-
-
-
-
-  <!-- 搜索框 -->
   <view class="weui-search-bar">
     <view class="weui-search-bar__form">
       <view class="weui-search-bar__box">
@@ -65,21 +41,22 @@
     </navigator>
   </view>
 
+  <view class="weui-cells weui-cells_after-title">
 
-  <!-- 推荐课程 -->
-  <view class="page-head-title">
-    <text>推荐课程</text>
-  </view>
-  <view>
-    <block wx:for="{{courseList.length%2==0?courseList.length/2:(courseList.length+1)/2}}" wx:key="row_key" wx:for-item="row_item" wx:for-index="row">
-      <view class="layout_horizontal">
-        <block wx:for="{{2}}" wx:key="column_key" wx:for-item="column_item" wx:for-index="column">
-          <view class="layout_vertical">
-            <image class="image" data-course-id="{{courseList[row_item*2+column_item].course_id}}" bindtap="bindViewTap" mode="aspectFill" src="{{courseList[row_item*2+column_item].image_url}}" />
-            <view class="start_k；page-section-title">{{courseList[row_item*2+column_item].name}}</view>
+    <view wx:for="{{followList}}" wx:key="id" wx:for-item="user">
+      <view class="weui-panel">
+        <navigator url="../../userinfo/userinfo?unionid={{user.unionid}}" class="weui-cell" hover-class="weui-cell_active">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="{{user.avatar}}" style="width: 50px; height: 50px; display: block" />
+            <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
           </view>
-        </block>
+          <view class="weui-cell__bd">
+            <view>{{user.name}}</view>
+            <view style="font-size: 13px;color: #888888;">上次签到: {{user.punch_time}}</view>
+          </view>
+        </navigator>
       </view>
-    </block>
+    </view>
+
   </view>
 </view>

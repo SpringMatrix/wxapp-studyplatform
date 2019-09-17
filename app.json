@@ -15,7 +15,9 @@
     "pages/userinfo/userinfo",
     "pages/courseinfo/courseinfo",
     "pages/write_note/write_note",
-    "pages/video/video"
+    "pages/video/video",
+    "pages/userinfo/userbookmark/userbookmark",
+    "pages/userinfo/userfocus/userfocus"
   ],
   "window": {
     "backgroundTextStyle": "light",
