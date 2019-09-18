@@ -10,7 +10,7 @@
 
   </view>
 
-  <view wx:for="{{newsList}}" wx:key="id" wx:for-item="news" wx:if="{{index<page}}" class="weui-panel">
+  <view wx:for="{{newsList}}" wx:key="id" wx:for-item="news" wx:for-index="index" wx:if="{{index<page}}" class="weui-panel">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">
         <view class="weui-media-box__title weui-media-box__title_in-text">
@@ -21,7 +21,11 @@
         <view class="weui-media-box_text">{{news.content}}</view>
         <view class="weui-media-box__info">
           <view class="weui-media-box__info__meta">{{news.time}}</view>
-          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其他信息</view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+            <image data-news-id="{{news.id}}" data-index="{{index}}" bindtap='onLikeTap' class="image" wx:if="{{ismark[news.id]}}" src="../../resources/images/icon_favor_20px.png" style="width: 40rpx;height: 40rpx;"></image>
+            <image wx:else data-news-id="{{news.id}}" data-index="{{index}}" bindtap='onLikeTap' class="image_click" src="../../resources/images/icon_love.svg" style="width: 40rpx;height: 40rpx;"></image>
+          <view class="weui-media-box__info__meta">{{news.likenum}}</view>
+          </view>
         </view>
       </view>
     </view>

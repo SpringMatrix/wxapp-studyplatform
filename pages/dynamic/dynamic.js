@@ -10,6 +10,7 @@ Page({
     avatar: "//i0.hdslb.com/bfs/face/0138f6c4c55808f0af148587bf83a9419524757f.jpg",
     content: "",
     newsList: [],
+    ismark: [],
     page: 5
 
   },
@@ -146,6 +147,89 @@ Page({
 
     }
 
+  },
+
+  onLikeTap: function(event) {
+    var that = this
+    var news_id = event.currentTarget.dataset.newsId
+    var index = event.currentTarget.dataset.index
+    if (this.data.ismark[news_id] != true) {
+      var url = 'http://localhost:8080/api/news/like?id='+news_id
+      wx.request({
+        url: url,
+        method: "POST",
+        header: {
+          "Content-Type": "application/json",
+          "system": "wxapp"
+        },
+        data: {
+        },
+        dataType: 'json',
+        success: function (result) {
+          if (result.data == true) {
+            wx.showToast({
+              title: '点赞成功!',
+              icon: 'success',
+              duration: 3000
+            });
+            var up = "ismark[" + news_id + "]";
+            var up2 = "newsList["+index+"].likenum"
+            that.setData({
+              [up]: true,
+              [up2]: that.data.newsList[index].likenum + 1
+            })
+          } else {
+            wx.showToast({
+              title: '点赞失败!',
+              image: '../../resources/images/icon_error.png',
+              duration: 3000
+            });
+          }
+          console.log(result.data)
+        },
+        fail: function () {
+          console.log(" post error")
+        }
+      })
+    }else{
+      var url = 'http://localhost:8080/api/news/like?id=' + news_id
+      wx.request({
+        url: url,
+        method: "POST",
+        header: {
+          "Content-Type": "application/json",
+          "system": "wxapp"
+        },
+        data: {
+        },
+        dataType: 'json',
+        success: function (result) {
+          if (result.data == true) {
+            wx.showToast({
+              title: '取消点赞成功!',
+              icon: 'success',
+              duration: 3000
+            });
+            var up = "ismark[" + news_id + "]";
+            var up2 = "newsList[" + index + "].likenum"
+            that.setData({
+              [up]: false,
+              [up2]: that.data.newsList[index].likenum - 1
+            })
+          } else {
+            wx.showToast({
+              title: '取消点赞失败!',
+              image: '../../resources/images/icon_error.png',
+              duration: 3000
+            });
+          }
+          console.log(result.data)
+        },
+        fail: function () {
+          console.log(" post error")
+        }
+      })
+    }
   },
 
   /**
