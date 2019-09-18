@@ -6,7 +6,9 @@ Page({
     bookmarkList: {},
     inputShowed: false,
     inputVal: "",
-    baseUrl: "../../video/video?id="
+    baseUrl: "../../video/video?id=",
+    searchContent: '',
+    searchList: {}
   },
   showInput: function () {
     this.setData({

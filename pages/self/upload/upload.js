@@ -1,4 +1,4 @@
-// pages/self/learnproject/learnproject.js
+// pages/self/upload/upload.js
 Page({
 
   /**

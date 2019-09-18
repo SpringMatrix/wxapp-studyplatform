@@ -8,7 +8,6 @@
     "pages/note/note",
     "pages/self/bookmark/bookmark",
     "pages/self/focus/focus",
-    "pages/self/learnproject/learnproject",
     "pages/self/setting/setting",
     "pages/self/myprofile/myprofile",
     "pages/self/myprofile/changeusername/changeusername",
@@ -17,7 +16,8 @@
     "pages/write_note/write_note",
     "pages/video/video",
     "pages/userinfo/userbookmark/userbookmark",
-    "pages/userinfo/userfocus/userfocus"
+    "pages/userinfo/userfocus/userfocus",
+    "pages/self/upload/upload"
   ],
   "window": {
     "backgroundTextStyle": "light",

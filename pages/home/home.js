@@ -8,7 +8,9 @@ Page({
   data: {
     inputShowed: false,
     inputVal: "",
-
+    searchContent: "",
+    searchList: {},
+    baseUrl: "../video/video?id=",
     courseList: {},
 
     // 推荐课程
@@ -40,11 +42,24 @@ Page({
       inputVal: ""
     });
   },
+
   inputTyping: function(e) {
     this.setData({
       inputVal: e.detail.value
     });
+    var that = this
+    var url = 'http://localhost:8080/api/courses/likename?name=' + e.detail.value
+    wx.request({
+      url: url,
+      method: "GET",
+      success: function (result) {
+        that.setData({
+          searchList: result.data
+        })
+      },
+    })
   },
+
   bindViewTap: function(event) {
     var course_id = event.currentTarget.dataset.courseId
     console.info(event.currentTarget.dataset.courseId)
