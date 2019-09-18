@@ -3,7 +3,7 @@
   <view wx:for="{{myNoteList}}" wx:key="id" wx:for-item="note">
     <i-card full title="{{note.name}}" thumb="{{note.image_url}}" i-class="card-demo">
       <view slot="content">{{note.content}}</view>
-      <view bindtap="bindViewTap" slot="footer" data-note-id="{{note.id}}">编辑</view>
+      <view bindtap="bindViewTap" slot="footer" data-note-id="{{note.id}}" data-name="{{note.name}}" data-content="{{note.content}}">编辑</view>
     </i-card>
   </view>
 </view>

@@ -1,15 +1,15 @@
 <!--pages/write_note/write_node.wxml-->
-<text>pages/write_note/write_note.wxml</text>
-    <i-input value="{{ value1 }}" title="标题" autofocus placeholder="名字" disabled/>
+    <i-input value="{{ value1 }}" title="课程" autofocus placeholder="{{name}}" disabled/>
 
 <view class="weui-cells weui-cells_after-title">
   <view class="weui-cell">
     <view class="weui-cell__bd">
-       <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
-       <view class="weui-textarea-counter">0/200</view>
+       <textarea class="weui-textarea" value="{{content}}" placeholder="请输入笔记内容" style="height: 3.3em" bindinput='userInput'/>
+       <view class="weui-textarea-counter">{{length}}/200</view>
     </view>
   </view>
 </view>
-<i-button bind:click="handleClick" type="primary">Primary</i-button>
+<i-button bind:click="onEditIt" type="primary">确认</i-button>
+<i-button bind:click="onDeleteConfirm" type="error">删除</i-button>
 
 
