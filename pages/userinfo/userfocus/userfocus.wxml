@@ -1,5 +1,4 @@
 <!--pages/userinfo/userfocus/userfocus.wxml-->
-<text>pages/userinfo/userfocus/userfocus.wxml</text>
 <view class="page">
 
   <view class="weui-search-bar">

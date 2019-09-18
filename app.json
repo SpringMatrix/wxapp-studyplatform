@@ -12,12 +12,12 @@
     "pages/self/myprofile/myprofile",
     "pages/self/myprofile/changeusername/changeusername",
     "pages/userinfo/userinfo",
-    "pages/courseinfo/courseinfo",
     "pages/write_note/write_note",
     "pages/video/video",
     "pages/userinfo/userbookmark/userbookmark",
     "pages/userinfo/userfocus/userfocus",
-    "pages/self/upload/upload"
+    "pages/self/upload/upload",
+    "pages/userinfo/userupload/userupload"
   ],
   "window": {
     "backgroundTextStyle": "light",

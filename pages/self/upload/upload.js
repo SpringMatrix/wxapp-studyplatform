@@ -1,18 +1,41 @@
 // pages/self/upload/upload.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    baseUrl: "../../video/video?id=",
+    uploadList: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    var url = 'http://localhost:8080/api/courses/unionid?unionid='+app.globalData.openid
+    wx.request({
+      url: url,
+      method: "GET",
+      header: {
+        "Content-Type": "application/json"
+      },
+      data: {
+      },
+      dataType: 'json',
+      success: function (result) {
+        that.setData({
+          uploadList: result.data.reverse()
+        })
 
+        console.log(result.data)
+      },
+      fail: function () {
+        console.error(" post error")
+      }
+    })
   },
 
   /**

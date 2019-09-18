@@ -1,6 +1,5 @@
-<!--pages/self/upload/upload.wxml-->
+<!--pages/userinfo/userupload/userupload.wxml-->
 <view class="page">
-  <button bindtap="bindUpload" class="page-body-button" type="primary" formType="submit">上传课程</button>
 
   <view class="weui-cells weui-cells_after-title">
 

@@ -1,18 +1,43 @@
-// pages/courseinfo/courseinfo.js
+// pages/userinfo/userupload/userupload.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    baseUrl: "../../../video/video?id=",
+    uploadList: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    var url = 'http://localhost:8080/api/courses/unionid?unionid=' + options.unionid
+    wx.request({
+      url: url,
+      method: "GET",
+      header: {
+        "Content-Type": "application/json"
+      },
+      data: {
+      },
+      dataType: 'json',
+      success: function (result) {
+        that.setData({
+          uploadList: result.data.reverse()
+        })
+        wx.setNavigationBarTitle({
+          title: options.name + "的上传"
+        })
 
+        console.log(result.data)
+      },
+      fail: function () {
+        console.error(" post error")
+      }
+    })
   },
 
   /**
