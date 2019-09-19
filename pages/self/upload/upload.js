@@ -10,6 +10,12 @@ Page({
     uploadList: {},
   },
 
+  bindUpload: function() {
+    wx.navigateTo({
+      url: 'uploadvideo/uploadvideo?unionid=' + app.globalData.openid
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

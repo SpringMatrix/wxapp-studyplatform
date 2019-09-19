@@ -1,0 +1,77 @@
+<!--pages/self/upload/uploadvideo/uploadvideo.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="weui-cells__title">新建课程</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell ">
+      <view class="weui-cell__hd">
+        <view class="weui-label">课程名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="name" class="weui-input" placeholder="请输入课程名" />
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <view class="weui-label">封面url</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="image_url" class="weui-input" placeholder="请输入课程封面url" />
+      </view>
+    </view>
+    <view class="weui-cell ">
+      <view class="weui-cell__hd">
+        <view class="weui-label">课程链接</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="url" class="weui-input" placeholder="请输入课程链接" />
+      </view>
+    </view>
+    <view class="weui-cell ">
+      <view class="weui-cell__hd">
+        <view class="weui-label">Tag1</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="tag1" class="weui-input" placeholder="课程主标签" />
+      </view>
+    </view>
+    <view class="weui-cell ">
+      <view class="weui-cell__hd">
+        <view class="weui-label">Tag2</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="tag2" class="weui-input" placeholder="课程副标签" />
+      </view>
+    </view>
+    <view class="weui-cell ">
+      <view class="weui-cell__hd">
+        <view class="weui-label">Tag3</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="tag3" class="weui-input" placeholder="课程副标签" />
+      </view>
+    </view>
+    <view class="weui-cell ">
+      <view class="weui-cell__hd">
+        <view class="weui-label">课程简介</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="introduction" class="weui-input" placeholder="请输入课程简介" />
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__tips">视频上传通过审核后方可展示</view>
+  <view class="weui-btn-area">
+    <button class="page-body-button" type="primary" formType="submit">确认上传</button>
+  </view>
+</form>
+<!-- 模态框 -->
+<modal class="modal" title='要提交的信息' hidden="{{modalHidden}}" bindcancel='modalCancel' bindconfirm='modalConfirm'>
+    <view>课程名:{{information.name}}</view>
+    <view>封面url:{{information.image_url}}</view>
+    <view>课程链接:{{information.url}}</view>
+    <view>Tag1:{{information.tag1}}</view>
+    <view>Tag2:{{information.tag2}}</view>
+    <view>Tag3:{{information.tag3}}</view>
+    <view>课程简介：{{information.introduction}}</view>
+</modal>
+<!-- /模态框 -->

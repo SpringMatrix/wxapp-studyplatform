@@ -72,7 +72,7 @@ Page({
     // DEBUG 发送http请求需要获取微信userinfo，但由于网络延迟获取userinfo会在发送http之后
 
   },
-  onReady: function() {
+  onShow: function() {
     var that = this;
     wx.getSetting({
       success(res) {

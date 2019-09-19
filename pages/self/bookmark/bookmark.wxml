@@ -43,6 +43,7 @@
   <view class="weui-cells weui-cells_after-title">
 
     <view wx:for="{{bookmarkList}}" wx:for-item="course">
+
       <navigator url="{{baseUrl + course.course_id}}" class="weui-cell" hover-class="weui-cell_active">
         <view class="weui-cell__hd">
           <image src="{{course.image_url}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
@@ -51,6 +52,6 @@
         <view class="weui-cell__ft">{{course.tag1}}</view>
       </navigator>
     </view>
-
   </view>
+
 </view>

@@ -17,7 +17,8 @@
     "pages/userinfo/userbookmark/userbookmark",
     "pages/userinfo/userfocus/userfocus",
     "pages/self/upload/upload",
-    "pages/userinfo/userupload/userupload"
+    "pages/userinfo/userupload/userupload",
+    "pages/self/upload/uploadvideo/uploadvideo"
   ],
   "window": {
     "backgroundTextStyle": "light",
