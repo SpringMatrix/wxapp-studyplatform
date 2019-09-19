@@ -127,7 +127,7 @@ Page({
               })
             }
           })
-          var url = 'http://localhost:8080/api/courses/all'
+          var url = 'http://localhost:8080/api/courses/allvis'
           wx.request({
             url: url,
             method: "GET",

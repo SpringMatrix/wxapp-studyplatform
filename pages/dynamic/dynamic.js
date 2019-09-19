@@ -63,7 +63,7 @@ Page({
   },
   fastRequestAll: function() {
     var that = this
-    var url = 'http://localhost:8080/api/news/all'
+    var url = 'http://localhost:8080/api/news/allvis'
     wx.request({
       url: url,
       method: "GET",
